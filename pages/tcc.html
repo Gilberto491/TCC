@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de TCCs</title>
+    <link rel="stylesheet" href="../css/tcc.css">
+    <link rel="stylesheet" href="../css/toast.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/coordenador/deleteModal.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li><a href="./cronograma.html">Cronograma</a></li>
+                <li class="active"><a href="#">Envie seu TCC</a></li>
+                <li><a href="./orientador.html">Orientador</a></li>
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../login.html">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <section class="tcc-list">
+            <div class="tcc-item">
+                <div class="tcc-info">
+                    <span class="tcc-title">Título do TCC 1</span>
+                    <span class="tcc-description">Descrição breve do TCC...</span>
+                </div>
+                <div class="tcc-actions">
+                    <button class="edit-button">Editar</button>
+                    <button class="delete-button">Excluir</button>
+                    <button class="share-button" onclick="shareByEmail(this)">Compartilhar</button>
+                </div>
+            </div>
+
+            <div class="tcc-item">
+                <div class="tcc-info">
+                    <span class="tcc-title">Título do TCC 2</span>
+                    <span class="tcc-description">Descrição breve do TCC...</span>
+                </div>
+                <div class="tcc-actions">
+                    <button class="edit-button">Editar</button>
+                    <button class="delete-button">Excluir</button>
+                    <button class="share-button" onclick="shareByEmail(this)">Compartilhar</button>
+                </div>
+            </div>
+
+            <!-- Adicionar mais itens conforme necessário -->
+        </section>
+
+        <button class="add-tcc-button" onclick="openModal()">+ Adicionar Documento TCC</button>
+    </main>
+
+    <!-- Modal para Adicionar ou Editar TCC -->
+    <div id="tccModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3>Adicionar Documento TCC</h3>
+            <form id="tccForm">
+                <input type="text" placeholder="Título" required>
+                <textarea placeholder="Descrição" rows="4" required></textarea>
+                <input type="url" placeholder="Link" required>
+                <input type="file" id="fileInput" style="display: none;">
+                <label for="fileInput" class="file-button">Selecionar Arquivo</label>
+                <p id="file-name">Nenhum arquivo selecionado</p>
+                <button type="submit" class="save-button">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para confirmar exclusão -->
+    <div id="confirmDeleteModal" class="modal-delete">
+        <div class="modal-delete-content">
+            <span class="close-delete-button" onclick="closeDeleteModal()">&times;</span>
+            <div class="modal-delete-icon">⚠️</div> <!-- Ícone de alerta -->
+            <h3 class="modal-delete-header">Tem certeza?</h3>
+            <p class="modal-delete-text">Se aceitar ou recusar, não poderá reverter esta ação!</p>
+            <button class="cancel-delete-button" onclick="closeDeleteModal()">Cancelar</button>
+            <button class="confirm-delete-button" onclick="deleteEvent()">Sim, confirmar!</button>
+        </div>
+    </div>
+
+    <script src="../js/tcc.js" type="text/javascript" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Toast de Sucesso -->
+    <div id="successToast" class="toast">Documento TCC salvo com sucesso!</div>
+
+</body>
+</html>

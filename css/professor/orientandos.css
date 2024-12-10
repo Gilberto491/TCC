@@ -1,0 +1,229 @@
+/* menu.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #f0f0f0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 220px; /* Certifique-se de que este valor corresponda ao margin-left do conteúdo principal */
+    background-color: #2f3e46;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+.table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #3d4f56;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar nav ul li.active {
+    background-color: #4CAF50;
+}
+
+.menu-top {
+    flex-grow: 1;
+}
+
+.menu-bottom {
+    margin-top: auto;
+}
+
+.view-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.view-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.main-content {
+    margin-left: 200px; /* Alinhe este valor com a largura do menu */
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+#orientandosTable_wrapper .dataTables_length,
+#orientandosTable_wrapper .dataTables_filter,
+#orientandosTable_wrapper .dataTables_info,
+#orientandosTable_wrapper .dataTables_paginate {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 10px; /* Adiciona espaçamento acima dos elementos de navegação */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#orientandosTable_wrapper .dataTables_length select,
+#orientandosTable_wrapper .dataTables_filter input,
+#orientandosTable_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#orientandosTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espaçamento entre as linhas */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Borda arredondada na tabela */
+    overflow: hidden; /* Garante que as bordas arredondadas sejam aplicadas corretamente */
+}
+
+#orientandosTable th, #orientandosTable td {
+    padding: 15px; /* Aplica o padding nas células do cabeçalho e conteúdo */
+    background-color: white; /* Fundo branco nas colunas */
+    border: none; /* Remove bordas internas para um visual mais limpo */
+}
+
+#orientandosTable tfoot th {
+    padding: 15px; /* Aplica o padding ao footer */
+    background-color: white; /* Fundo branco para o footer */
+    border: none; /* Remove bordas no footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para acabamento */
+    border-bottom-left-radius: 10px; /* Arredonda os cantos inferiores */
+    border-bottom-right-radius: 10px; /* Arredonda os cantos inferiores */
+}
+
+
+
+/* Modal Styles */
+/* Estilos para a Modal */
+.modal {
+    display: none; /* Escondida por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-body {
+    margin-top: 20px;
+}
+
+.modal-body p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.modal-body a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.modal-body a:hover {
+    text-decoration: underline;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.close-button {
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-button:hover {
+    color: #f44336;
+}
+
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+

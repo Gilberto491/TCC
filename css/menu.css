@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 180px; /* Define uma largura fixa e padronizada para todas as páginas */
+    background-color: #2f3e46;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.menu-top {
+    flex-grow: 1;
+}
+
+.menu-bottom {
+    margin-top: auto;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    padding: 12px 10px;
+    border-bottom: 1px solid #3d4f56;
+}
+
+.sidebar nav ul li.active {
+    background-color: #4CAF50;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 0px;
+    font-size: 14.5px;
+    margin-left: -1px;
+}

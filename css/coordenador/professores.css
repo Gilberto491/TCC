@@ -1,0 +1,270 @@
+/* CSS de Correção */
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.sidebar {
+    flex: 0 0 250px; /* Tamanho fixo da sidebar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #2c3e50;
+}
+
+.table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 200px; /* Mesmo valor que o tamanho da sidebar */
+    padding: 20px;
+}
+
+.add-professor-btn {
+    margin-bottom: 15px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-professor-btn:hover {
+    background-color: #45a049;
+}
+
+.btn-action {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-edit {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #1976D2;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#professoresTable_wrapper .dataTables_length,
+#professoresTable_wrapper .dataTables_filter,
+#professoresTable_wrapper .dataTables_info,
+#professoresTable_wrapper .dataTables_paginate {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 10px; /* Adiciona espaçamento acima dos elementos de navegação */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#professoresTable_wrapper .dataTables_length select,
+#professoresTable_wrapper .dataTables_filter input,
+#professoresTable_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#professoresTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espaçamento entre as linhas */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Borda arredondada na tabela */
+    overflow: hidden; /* Garante que as bordas arredondadas sejam aplicadas corretamente */
+}
+
+#professoresTable th, #professoresTable td {
+    padding: 15px; /* Aplica o padding nas células do cabeçalho e conteúdo */
+    background-color: white; /* Fundo branco nas colunas */
+    border: none; /* Remove bordas internas para um visual mais limpo */
+}
+
+#professoresTable tfoot th {
+    padding: 15px; /* Aplica o padding ao footer */
+    background-color: white; /* Fundo branco para o footer */
+    border: none; /* Remove bordas no footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para acabamento */
+    border-bottom-left-radius: 10px; /* Arredonda os cantos inferiores */
+    border-bottom-right-radius: 10px; /* Arredonda os cantos inferiores */
+}
+
+/* Estilos para a Modal */
+.modal-professor {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Para manter acima de todos os outros elementos */
+}
+
+.modal-professor-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-professor-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-professor-header h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.modal-professor-body {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.modal-professor-body label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.modal-professor-body input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Aplica o estilo ao campo #professor-siape apenas quando o modal tem a classe .modal-edit */
+.modal-edit .modal-professor-body input#professor-siape {
+    background-color: #f0f0f0;
+    color: #6c757d;
+    border-color: #ced4da;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.modal-professor-body select {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.save-professor-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.save-professor-button:hover {
+    background-color: #45a049;
+}
+
+.close-professor-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.close-professor-button:hover {
+    color: #f44336;
+}

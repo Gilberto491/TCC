@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos Cadastrados</title>
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/toast2.css">
+    <link rel="stylesheet" href="../../css/spinner.css">
+    <link rel="stylesheet" href="../../css/datatable-styles.css">
+    <link rel="stylesheet" href="../../css/coordenador/deleteModal.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../../css/coordenador/alunos.css"> <!-- Certifique-se de incluir o CSS de correção -->
+    <script src="../../js/verificaRole/verificaRoleCoordenador.js"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li><a href="./agenda.html">Cronograma</a></li>
+                <li><a href="./professores.html">Professores</a></li>
+                <li class="active"><a href="#">Alunos</a></li>
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../../login.html" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section class="table-container">
+            <button class="add-aluno-btn" onclick="openAddAlunoModal()">Adicionar Novo Aluno</button>
+            <table id="alunosTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Orientador</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aluno A</td>
+                        <td>Professor A</td>
+                        <td>
+                            <button class="btn-action btn-edit" onclick="openAddAlunoModal()">Editar</button>
+                            <button class="btn-action btn-delete" onclick="openDeleteModal()">Excluir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Aluno B</td>
+                        <td><span class="no-orientador">-</span></td>
+                        <td>
+                            <button class="btn-action btn-edit" onclick="openAddAlunoModal()">Editar</button>
+                            <button class="btn-action btn-delete" onclick="openDeleteModal()">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+
+        <!-- Modal para Adicionar Aluno -->
+        <div id="addAlunoModal" class="modal-aluno">
+            <div class="modal-aluno-content ">
+                <div class="">
+                    <h3>Cadastrar Novo Aluno</h3>
+                    <span class="close-aluno-button" onclick="closeAddAlunoModal()">&times;</span>
+                </div>
+                <div class="modal-aluno-body">
+                    <form id="addAlunoForm">
+                        <input type="text" id="aluno-nome" placeholder="Nome" required>
+                        <input type="number" id="aluno-matricula" placeholder="Matrícula" required>
+                        <button type="submit" class="save-aluno-button">Cadastrar Aluno</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+         <!-- Modal para confirmar exclusão -->
+        <div id="confirmDeleteModal" class="modal-delete">
+            <div class="modal-delete-content">
+                <span class="close-delete-button" onclick="closeDeleteModal()">&times;</span>
+                <div class="modal-delete-icon">⚠️</div> <!-- Ícone de alerta -->
+                <h3 class="modal-delete-header">Tem certeza?</h3>
+                <p class="modal-delete-text">Se aceitar ou recusar, não poderá reverter esta ação!</p>
+                <button class="cancel-delete-button" onclick="closeDeleteModal()">Cancelar</button>
+                <button class="confirm-delete-button" onclick="confirmDeleteAluno()">Sim, confirmar!</button>
+            </div>
+        </div>
+
+        <!-- Toast de sucesso -->
+        <div id="successToast" class="toast">Aluno removido com sucesso!</div>
+
+        <!-- Toast de erro -->
+        <div id="errorToast" class="toast">Erro ao remover o aluno. Tente novamente!</div>
+
+        <!-- Spinner de carregamento -->
+        <div id="loading" style="display: none;"> <!-- Começa oculto -->
+            <div class="spinner"></div>
+        </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="../../js/coordenador/alunos.js"></script>
+    <script src="../../js/sair.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,342 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #2f3e46;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Define uma largura mínima para a coluna de ações */
+table td:nth-child(3) {
+    min-width: 250px; /* Ajuste este valor conforme necessário */
+}
+
+/* Ajusta a coluna de botões para que os botões quebrem linha quando o espaço for reduzido */
+.actions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+#solicitacoesTable_wrapper .dataTables_length,
+#solicitacoesTable_wrapper .dataTables_filter,
+#solicitacoesTable_wrapper .dataTables_info,
+#solicitacoesTable_wrapper .dataTables_paginate {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 10px; /* Adiciona espaçamento acima dos elementos de navegação */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#solicitacoesTable_wrapper .dataTables_length select,
+#solicitacoesTable_wrapper .dataTables_filter input,
+#solicitacoesTable_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#solicitacoesTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espaçamento entre as linhas */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Borda arredondada na tabela */
+    overflow: hidden; /* Garante que as bordas arredondadas sejam aplicadas corretamente */
+}
+
+#solicitacoesTable th, #solicitacoesTable td {
+    padding: 15px; /* Aplica o padding nas células do cabeçalho e conteúdo */
+    background-color: white; /* Fundo branco nas colunas */
+    border: none; /* Remove bordas internas para um visual mais limpo */
+}
+
+#solicitacoesTable tfoot th {
+    padding: 15px; /* Aplica o padding ao footer */
+    background-color: white; /* Fundo branco para o footer */
+    border: none; /* Remove bordas no footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para acabamento */
+    border-bottom-left-radius: 10px; /* Arredonda os cantos inferiores */
+    border-bottom-right-radius: 10px; /* Arredonda os cantos inferiores */
+}
+
+
+/* Sobrescreve o estilo do DataTable para remover o border-bottom */
+table.dataTable.no-footer {
+    border-bottom: none !important; /* Remove a borda inferior */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+.view-button, .accept-button, .reject-button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.accept-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reject-button {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Estilos para a Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.5); 
+    justify-content: center; 
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+    width: 400px; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.modal-icon {
+    font-size: 50px;
+    color: #f39c12; /* Cor de alerta */
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.modal-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px;
+}
+
+.cancel-button {
+    background-color: #ccc; 
+    color: #333; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.confirm-button {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.confirm-button:hover {
+    background-color: #45a049;
+}
+
+/* Estiliza a seção para definir o limite de solicitacoes */
+/* Estilo para o contêiner do limite de solicitacoes */
+.limit-container {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9; /* Cor para combinar com a estética */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+}
+
+/* Ajuste para garantir o posicionamento do limit-container */
+.limit-container {
+    margin-top: 10px; /* Espaço acima para separar da tabela */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha à esquerda, ajuste para 'center' se preferir */
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+}
+
+.limit-container input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 50px;
+    text-align: center;
+}
+
+.limit-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.limit-container button:hover {
+    background-color: #45a049;
+}
+
+.orientandos-limit {
+    font-size: 12px;
+}
+
+
+/* Estiliza o botão de salvar o limite */
+.save-limit-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.solicitacoes-limit {
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.save-limit-button:hover {
+    background-color: #45a049;
+}
+
+/* Para garantir que o layout geral da página esteja correto */
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Estilo da modal para definir o novo limite de solicitacoes */
+
+
+/* Estilo do botão quando está habilitado */
+.btn-enabled {
+    background-color: #28a745; /* Verde */
+    cursor: pointer;
+    color: white;
+}
+
+/* Estilo do botão quando está desabilitado */
+.btn-disabled {
+    background-color: #ccc; /* Cinza */
+    cursor: not-allowed;
+    color: #666;
+}
+
+.define-limit-modal {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}

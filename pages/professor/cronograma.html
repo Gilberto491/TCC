@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Agenda</title>
+    <link rel="stylesheet" href="../../css/cronograma.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/spinner.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li class="active"><a href="#">Cronograma</a></li>
+                <li><a href="./orientandos.html">Orientandos</a></li>
+                <li><a href="./solicitacoes.html">Solicitações</a></li>
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../../login.html" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <!-- Spinner de carregamento -->
+        <div id="loading" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+
+        <section class="agenda">
+            <!-- Os eventos serão carregados aqui -->
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/sair.js"></script>
+  
+
+    <script>
+        $(document).ready(function () {
+            // Função para fazer a requisição AJAX e popular os eventos
+            var token = localStorage.getItem('token');
+
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8081/api/eventos",
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                beforeSend: function() {
+                    // Exibir o spinner de carregamento
+                    $('#loading').show();
+                    $('.agenda').hide(); // Esconde os eventos até o carregamento
+                },
+                success: function (eventos) {
+                    console.log('Resposta completa:', eventos); // Veja o conteúdo da resposta
+                    const eventosContainer = $('.agenda'); // Supondo que os eventos estejam dentro da classe agenda
+                    eventosContainer.html(''); // Limpa o conteúdo anterior
+
+                    // Ordenar os eventos pela data (ascendente)
+                    eventos.sort(function (a, b) {
+                        const dataA = new Date(a.data);
+                        const dataB = new Date(b.data);
+                        return dataA - dataB; // Se dataA for menor, ele virá primeiro
+                    });
+
+                    eventos.forEach(function (evento) {
+                        const partesData = evento.data.split('-');
+                        const dataEvento = new Date(partesData[0], partesData[1] - 1, partesData[2]);
+
+                        const formatDia = new Intl.DateTimeFormat('pt-BR', { day: '2-digit' }).format(dataEvento);
+                        const mesAno = dataEvento.toLocaleString('pt-BR', { month: 'short', year: 'numeric' }).toUpperCase().replace('.', '').replace(' DE ', '/');
+                        let formatDiaSemana = new Intl.DateTimeFormat('pt-BR', { weekday: 'long' }).format(dataEvento).toUpperCase();
+                        formatDiaSemana = formatDiaSemana.replace('-FEIRA', '');
+
+                        const eventoHTML = `
+                            <div class="event">
+                                <div class="date">
+                                    <span class="day">${formatDia}</span>
+                                    <span class="weekday">${formatDiaSemana}</span>
+                                    <span class="month-year">${mesAno}</span>
+                                </div>
+                                <div class="details">
+                                    <p>${evento.titulo}</p>
+                                </div>
+                            </div>
+                        `;
+
+                        // Adiciona o evento ao container de eventos
+                        eventosContainer.append(eventoHTML);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    if (xhr.status === 403) {
+                    // Se houver um erro 403, redireciona para a página de login
+                       window.location.href = "../../login.html";
+                       console.log("teste")
+                    } else {
+                        console.error('Erro ao buscar os eventos:', error);
+                    }
+                },
+                complete: function() {
+                    // Esconder o spinner de carregamento quando a requisição terminar
+                    $('#loading').hide();
+                    $('.agenda').show(); // Exibe os eventos após o carregamento
+                }
+            });
+        });
+    </script>
+
+
+</body>
+</html>

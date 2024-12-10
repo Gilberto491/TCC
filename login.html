@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <style>
+        .icon {
+            opacity: 0.6; /* Ajuste a transparência aqui */
+            /* Ou use: color: rgba(0, 0, 0, 0.5); */
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none; /* Inicialmente oculto */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="img/logo.jpg" alt="Logo do Instituto Federal" class="logo">
+        <form id="login-form" class="login-form">
+            <div class="input-group">
+                <span class="icon">👤</span>
+                <input type="text" id="username" placeholder="Digite seu login" required>
+            </div>
+            <div class="input-group">
+                <span class="icon">🔒</span>
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="login-button">Logar</button>
+            <p class="error-message" id="error-message">Credenciais incorretas. Tente novamente.</p>
+        </form>
+        <a href="https://moodle.poa.ifrs.edu.br/login/forgot_password.php" target="_blank" class="forgot-password">Esqueceu a senha?</a>
+    </div>
+
+    <script>
+
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
+    // Obtém os valores dos campos de entrada
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Define os dados a serem enviados para o servidor
+    const data = {
+        username: username,
+        password: password
+    };
+
+    // Realiza a requisição AJAX para o endpoint de login
+    fetch("http://localhost:8081/auth/login", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+            
+        },
+        body: JSON.stringify({ username, password })
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text(); // O JWT será retornado como texto
+        } else {
+            document.getElementById('error-message').style.display = 'block';
+            throw new Error("Login falhou");
+        }
+    })
+    .then(token => {
+
+        console.log(token);
+        localStorage.setItem('token', token);
+        const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+        
+        // Verifica o perfil do usuário (as roles)
+        if (tokenPayload.roles.includes("ROLE_PROFESSOR")) {
+            window.location.href = './pages/professor/cronograma.html';
+        } else if (tokenPayload.roles.includes("ROLE_ALUNO")) {
+            window.location.href = './pages/cronograma.html';
+        } else if (tokenPayload.roles.includes("ROLE_COORDENADOR")) {
+            window.location.href = "./pages/coordenador/agenda.html";
+        }
+    })
+    .catch(error => {
+        // Trata erros de rede
+        console.error('Erro ao tentar fazer login:', error);
+        document.getElementById('error-message').style.display = 'block';
+        document.getElementById('error-message').textContent = 'Nome de usuário ou senha errados. Por favor tente outra vez.';
+        
+        // Limpa os campos de entrada
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+    });
+});
+    </script>
+</body>
+</html>

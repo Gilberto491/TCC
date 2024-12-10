@@ -1,0 +1,27 @@
+/* Spinner de carregamento */
+#loading {
+    position: fixed; /* Fixa o spinner na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    z-index: 9999; /* Garante que o spinner esteja acima de todo o conteúdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1); /* Círculo mais claro */
+    border-left-color: #09f; /* A parte que será animada */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite; /* Animação de rotação */
+}
+
+/* Animação do spinner */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,64 @@
+/* Estiliza a área de navegação da tabela */
+#solicitacoesTable_wrapper .dataTables_length,
+#solicitacoesTable_wrapper .dataTables_filter {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: inline-block;
+    width: calc(50% - 20px); /* Divide o espaço entre os dois elementos */
+    box-sizing: border-box;
+}
+
+/* Adiciona espaço e ajusta a separação */
+#solicitacoesTable_wrapper .dataTables_length {
+    margin-right: 10px; /* Espaçamento entre os elementos */
+}
+
+/* Ajusta os elementos de navegação inferior */
+#solicitacoesTable_wrapper .dataTables_info,
+#solicitacoesTable_wrapper .dataTables_paginate {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    display: inline-block;
+    width: calc(50% - 20px); /* Divide o espaço entre os dois elementos */
+    box-sizing: border-box;
+}
+
+/* Adiciona espaço entre as partes de navegação inferior */
+#solicitacoesTable_wrapper .dataTables_info {
+    margin-right: 10px; /* Espaçamento entre os elementos */
+}
+
+/* Customização do seletor de registros e pesquisa */
+#solicitacoesTable_wrapper .dataTables_length select,
+#solicitacoesTable_wrapper .dataTables_filter input,
+#solicitacoesTable_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+}
+
+/* Estilização da tabela */
+#solicitacoesTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#solicitacoesTable th, #solicitacoesTable td {
+    padding: 15px;
+    background-color: white;
+    border: none;
+}

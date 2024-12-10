@@ -1,0 +1,81 @@
+/* Estilo do conteúdo da modal */
+.modal-content2 {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px; /* Um pouco mais de padding para parecer mais espaçoso */
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título da modal */
+.modal-header2 {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* Informações dentro da modal (alinhadas à esquerda) */
+.modal-body2 {
+    text-align: left; /* Alinha à esquerda */
+    margin-top: 20px;
+}
+
+/* Estiliza as labels e conteúdo */
+.modal-body2 p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.modal-body2 p span {
+    font-weight: normal; /* O conteúdo (como o link ou a descrição) fica normal */
+}
+
+/* Estilo do link */
+#envio-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#envio-link:hover {
+    text-decoration: underline;
+}
+
+/* Botão de fechar no topo direito */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Rodapé com botão de fechar */
+.modal-footer2 {
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* Estilo do botão de fechar */
+.btn-close {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-close:hover {
+    background-color: #218838;
+}
+
+#confirm-modal-message {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}

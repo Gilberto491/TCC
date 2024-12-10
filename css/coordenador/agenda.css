@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+.main-content {
+    margin-left: 200px; /* Ajusta para a nova largura da barra lateral */
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.agenda {
+    padding: 2px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.event {
+    display: flex;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.date {
+    flex: 0 0 50px;
+    text-align: center;
+    color: #333;
+}
+
+.day {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.weekday {
+    font-size: 12px;
+}
+
+.month-year {
+    font-size: 10px;
+    color: #666;
+}
+
+.details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border-left: 3px solid #4CAF50;
+    padding-left: 10px;
+    margin-left: 10px;
+    
+}
+
+.details p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.details-container {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; /* Para alinhar à direita */
+    align-items: center;
+}
+
+.edit-button, .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #2196F3;
+    color: #fff;
+    width: 66px;
+    height: 34px;
+    border-radius: 23px;
+}
+
+.edit-button:hover {
+    background-color: #1976D2;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: #fff;
+    width: 66px;
+    height: 34px;
+    border-radius: 23px;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.add-event-button {
+    margin: 4px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-event-button:hover {
+    background-color: #45a049;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.save-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}

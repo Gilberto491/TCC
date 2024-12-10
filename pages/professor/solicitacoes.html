@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitações dos Alunos</title>
+    <link rel="stylesheet" href="../../css/datatable-styles.css">
+    <link rel="stylesheet" href="../../css/professor/solicitacoes.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/toast.css">
+    <link rel="stylesheet" href="../../css/spinner.css">
+    <link rel="stylesheet" href="../../css/modal.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li><a href="./cronograma.html">Cronograma</a></li>
+                <li><a href="./orientandos.html">Orientandos</a></li>
+                <li class="active"><a href="#">Solicitações</a></li>
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../../login.html">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section class="table-container">
+            <table id="solicitacoesTable" class="display solicitacoesTable">
+                <thead>
+                    <tr>
+                        <th>Nome do Aluno</th>
+                        <th>Data da Solicitação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </section>
+    
+        <!-- Adicione o limit-container logo abaixo da table-container -->
+        <section class="limit-container">
+            <label class="orientandos-limit" for="orientandos-limit">Limite Máximo de Orientandos:</label>
+            <input type="number" id="orientandos-limit" min="1" max="10">
+            <button class="save-limit-button btn-disabled" disabled onclick="openConfirmLimitModal()">Salvar Limite</button>
+        </section>
+    </main>
+
+    <!-- Modal para Visualizar Solicitação -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content2">
+            <span class="close-button" onclick="closeViewModal()">&times;</span>
+            <h3 class="modal-header2">Detalhes da Solicitação</h3>
+            <div class="modal-body2">
+                <p><strong>Título:</strong></p>
+                <p id="modal-title" class="modal-info"></p>
+                <p><strong>Descrição:</strong></p>
+                <p id="modal-description" class="modal-info"></p>
+            </div>
+            <div class="modal-footer2">
+                <button class="btn-close btn btn-primary" onclick="closeViewModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Confirmar o Novo Limite -->
+    <div id="confirmNewLimitModal" class="modal">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">⚠️</span>
+                </div>
+                <h3 class="modal-title">Tem certeza?</h3>
+
+            <p id="confirm-modal-message">Você deseja realmente definir um novo limite de orientandos? Essa ação não poderá ser revertida!</p>
+            <div class="modal-actions">
+                <button class="cancel-button" onclick="closeConfirmLimitModal()">Cancelar</button>
+                <button class="confirm-button" onclick="confirmNewLimit()">Sim, definir!</button>
+            </div>
+        </div>
+    </div>
+
+   <!-- Modal de Confirmação -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-icon">⚠️</span>
+            </div>
+            <h3 class="modal-title">Tem certeza?</h3>
+            <!-- Adicione este parágrafo para exibir a mensagem da modal -->
+            <p id="confirm-modal-message">Você realmente deseja executar essa ação?</p> 
+            <div class="modal-actions">
+                <button class="cancel-button" onclick="closeConfirmModal()">Cancelar</button>
+                <button class="confirm-button" id="confirm-yes">Sim, confirmar!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de Sucesso -->
+    <div id="successToast" class="toast">Ação realizada com sucesso!</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="../../js/professor/solicitacoes.js" type="text/javascript" defer></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientandos</title>
+    <link rel="stylesheet" href="../../css/professor/orientandos.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/datatable-styles.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li><a href="./cronograma.html">Cronograma</a></li>
+                <li class="active"><a href="#">Orientandos</a></li>
+                <li><a href="./solicitacoes.html">Solicitações</a></li>
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../../login.html">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
+    <main class="main-content">
+        <section class="table-container">
+            <table id="orientandosTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Envio Pendente</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>João Silva</td>
+                        <td>Sim</td>
+                        <td>
+                            <button class="view-button" onclick="openModal(
+                                'Detalhes do envio de João Silva'
+                                )">Visualizar Envio</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Maria Oliveira</td>
+                        <td>Não</td>
+                        <td>
+                            <button class="view-button" disabled>Visualizar Envio</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Carlos Pereira</td>
+                        <td>Sim</td>
+                        <td>
+                            <button class="view-button" onclick="openModal('Detalhes do envio de Carlos Pereira')">Visualizar Envio</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fernanda Costa</td>
+                        <td>Não</td>
+                        <td>
+                            <button class="view-button" disabled>Visualizar Envio</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal para Visualização de Envio -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Detalhes do Envio</h3>
+                <span class="close-button" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Link ou Documento:</strong> <a id="envio-link" href="#" target="_blank">Baixar Documento</a></p>
+                <p><strong>Descrição:</strong></p>
+                <p id="envio-description">Aqui será exibida a descrição do envio.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="../../js/professor/orientandos.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#orientandosTable').DataTable();
+        });
+
+        function openModal(details) {
+            document.getElementById('envio-details').innerText = details;
+            document.getElementById('viewModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('viewModal').style.display = 'none';
+        }
+
+        
+    </script>
+</body>
+</html>

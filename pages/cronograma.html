@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Agenda</title>
+    <link rel="stylesheet" href="../css/cronograma.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/spinner.css">
+    <link rel="stylesheet" href="../css/disable.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li class="active"><a href="#">Cronograma</a></li>
+                <li><a href="./tcc.html" id="tcc-link">Envie seu TCC</a></li>
+                <li><a href="./orientador.html">Orientador</a></li>
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../login.html" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <!-- Spinner de carregamento -->
+        <div id="loading" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+
+        <section class="agenda">
+            <!-- Os eventos serão carregados aqui -->
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/sair.js"></script>
+    <script src="../js/cronograma.js"></script>
+</body>
+</html>

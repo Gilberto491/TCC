@@ -1,0 +1,37 @@
+/* Estilos para o Toast */
+.toast {
+    visibility: hidden; /* Inicialmente escondido */
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1001; /* Acima da modal */
+    left: 50%;
+    bottom: 30px;
+    font-size: 14px;
+    opacity: 0; /* Totalmente transparente inicialmente */
+    transition: opacity 0.5s, bottom 0.5s; /* Transições suaves */
+}
+
+.toast.show {
+    visibility: visible; /* Torna visível */
+    opacity: 1; /* Mostra completamente */
+    bottom: 50px; /* Sobe um pouco */
+}
+
+#errorToast {
+    background-color:#f44336; /* Cor de fundo vermelha para indicar erro */
+    color: white;
+    padding: 16px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: none; /* Inicialmente escondido */
+    opacity: 0;
+    transition: opacity 0.5s;
+}

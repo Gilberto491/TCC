@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professores Cadastrados</title>
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/toast2.css">
+    <link rel="stylesheet" href="../../css/spinner.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../../css/datatable-styles.css">
+    <link rel="stylesheet" href="../../css/coordenador/deleteModal.css">
+    <script src="../../js/verificaRole/verificaRoleCoordenador.js"></script>
+    <link rel="stylesheet" href="../../css/coordenador/professores.css"> <!-- Certifique-se de incluir o CSS de correção -->
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li><a href="./agenda.html">Cronograma</a></li>
+                <li class="active"><a href="#">Professores</a></li>
+                <li><a href="./alunos.html">Alunos</a></li>
+                
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../../login.html" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section class="table-container">
+            <button class="add-professor-btn" onclick="openAddProfessorModal()">Adicionar Novo Professor</button>
+            <table id="professoresTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Orientando(s)</th>
+                        <th>Vagas Disponíveis</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal para confirmar exclusão -->
+    <div id="confirmDeleteModal" class="modal-delete">
+        <div class="modal-delete-content">
+            <span class="close-delete-button" onclick="closeDeleteModal()">&times;</span>
+            <div class="modal-delete-icon">⚠️</div> <!-- Ícone de alerta -->
+            <h3 class="modal-delete-header">Tem certeza?</h3>
+            <p class="modal-delete-text">Se aceitar ou recusar, não poderá reverter esta ação!</p>
+            <button class="cancel-delete-button" onclick="closeDeleteModal()">Cancelar</button>
+            <button class="confirm-delete-button" onclick="confirmDeleteProfessor()">Sim, confirmar!</button>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar Professor -->
+    <div id="addProfessorModal" class="modal-professor">
+        <div class="modal-professor-content">
+            <div class="">
+                <h3 id="modalProfessorTitle">Cadastrar Novo Professor</h3>
+                <span class="close-professor-button" onclick="closeAddProfessorModal()">&times;</span>
+            </div>
+            <div class="modal-professor-body">
+                <form id="addProfessorForm">
+                    <input type="text" id="professor-nome" placeholder="Nome do Professor" required>
+                    <input type="number" id="professor-siape" placeholder="Siape" required>
+                    <label for="professor-coordinator">Permissões de Coordenador:</label>
+                    <select id="professor-coordinator" required>
+                        <option value="no">Não</option>
+                        <option value="yes">Sim</option>
+                    </select>
+                    <button type="submit" class="save-professor-button">Cadastrar Professor</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast de sucesso -->
+    <div id="successToast" class="toast">Professor removido com sucesso!</div>
+
+    <!-- Toast de erro -->
+    <div id="errorToast" class="toast">Erro ao remover o professor. Tente novamente!</div>
+
+    <!-- Spinner de carregamento -->
+    <div id="loading" style="display: none;"> <!-- Começa oculto -->
+        <div class="spinner"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="../../js/coordenador/professores.js"></script>
+    <script src="../../js/sair.js"></script>
+</body>
+</html>

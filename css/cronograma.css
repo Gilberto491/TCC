@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+.main-content {
+    margin-left: 200px; /* Ajusta para a nova largura da barra lateral */
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.agenda {
+    padding: 2px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.event {
+    display: flex;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.date {
+    flex: 0 0 50px;
+    text-align: center;
+    color: #333;
+}
+
+.day {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.weekday {
+    font-size: 12px;
+}
+
+.month-year {
+    font-size: 10px;
+    color: #666;
+}
+
+.details {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    border-left: 3px solid #4CAF50;
+    padding-left: 10px;
+}
+
+.details p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Estilo para eventos favoritados */
+.event.favoritado {
+    background-color: #fff3cd; /* Cor de destaque (dourado) */
+    border-right: 5px solid #ffc107; /* Borda dourada à direita */
+}
+
+/* Ícone de favorito */
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Colocar o ícone de estrela no canto superior direito */
+    cursor: pointer;
+}
+
+.favorite-icon i {
+    font-size: 24px;
+    color: #ccc; /* Cor normal para eventos não favoritados */
+}
+
+/* Cor diferente quando o evento está favoritado */
+.event.favoritado .favorite-icon i {
+    color: #ffc107; /* Dourado para eventos favoritados */
+}

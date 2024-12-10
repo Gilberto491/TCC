@@ -1,0 +1,15 @@
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* Remova ou ajuste o estilo que deixa o link desabilitado inicialmente */
+#tcc-link {
+    pointer-events: none; /* Evita cliques quando desabilitado */
+    opacity: 0.5;         /* Ajuste a opacidade para mostrar desabilitado */
+}
+
+#tcc-link.enabled {
+    pointer-events: all; /* Permite cliques */
+    opacity: 1;          /* Ajusta a opacidade de volta ao normal */
+}

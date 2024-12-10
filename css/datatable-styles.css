@@ -1,0 +1,81 @@
+/* Estilos gerais do DataTable */
+.table-container {
+    margin: 20px;
+}
+
+.dataTable-wrapper .dataTables_length,
+.dataTable-wrapper .dataTables_filter,
+.dataTable-wrapper .dataTables_info,
+.dataTable-wrapper .dataTables_paginate {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dataTable-wrapper .dataTables_length select,
+.dataTable-wrapper .dataTables_filter input,
+.dataTable-wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dataTable th, .dataTable td {
+    padding: 15px;
+    background-color: white;
+    border: none;
+}
+
+.dataTable tfoot th {
+    padding: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Remover borda inferior da tabela */
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+
+/* Estilo dos botões de ação */
+.request-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.request-button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para o botão desabilitado */
+.request-button.disabled {
+    background-color: #d3d3d3;
+    color: #777;
+    cursor: not-allowed;
+    pointer-events: none;
+}

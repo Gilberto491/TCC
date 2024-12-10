@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientadores</title>
+    <link rel="stylesheet" href="../css/orientador.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../css/toast.css">
+    <link rel="stylesheet" href="../css/disable.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/spinner.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul class="menu-top">
+                <li><a href="./cronograma.html">Cronograma</a></li>
+                <li><a href="./tcc.html" id="tcc-link" class="disabled">Envie seu TCC</a></li>
+                <li class="active"><a href="#">Orientador</a></li>
+            </ul>
+            <ul class="menu-bottom">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="../login.html" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
+    <main class="main-content">
+        
+        <!-- Modal para Solicitar Orientação -->
+        <div id="solicitarModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h3>Solicitar Orientação</h3>
+                <form id="solicitarForm">
+                    <input type="hidden" id="professorId" name="professorId"> 
+                    <input type="text" id="titulo" placeholder="Título do TCC" required>
+                    <textarea placeholder="Descrição da Ideia" id="descricao" rows="4" required></textarea>
+                    <button type="submit" class="save-button">Solicitar</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="successToast" class="toast">Solicitação feita com sucesso!</div>
+        <div id="errorToast" class="toast">Ocorreu um erro ao enviar a solicitação!</div>
+        
+        <!-- Spinner de carregamento -->
+        <div id="loading" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+
+        <section class="table-container">
+            <table id="orientadoresTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Vagas</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="../js/orientador.js" type="text/javascript" defer></script>
+    <script src="../js/sair.js"></script>
+</body>
+</html>
